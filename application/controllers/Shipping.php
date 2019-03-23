@@ -63,15 +63,15 @@ if ($err) {
 }
 
 public function get_city_by_province($province_id){
-    $city = $this->get_city($province_id);
-    $output = '<option value="">- Kota -</option>';
-
-    foreach ($city->rajaongkir->results as $cty){
-      $output .= '<option value="'.$cty->city_id.'">'.$cty->city_name.'</option>';
+      $city = $this->get_city($province_id);
+      $output = '<option value="">- Kota -</option>';
+ 
+      foreach ($city->rajaongkir->results as $cty) {
+        $output .='<option value="'.$cty->city_id.'">'.$cty->city_name.'</option>';
+      }
+ 
+      echo $output;
     }
-
-    echo $output;  
-}
 
 public function cek(){
   $data['asal'] = $this->input->post('origin_province');
