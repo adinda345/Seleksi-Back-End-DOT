@@ -73,6 +73,10 @@ public function get_city_by_province($province_id){
     echo $output;  
 }
 
+public function cek(){
+  $data['asal'] = $this->input->post('origin_province');
+  $this->load->view('v_tujuan',$data);
+}
 public function tampil(){
 	$data['province'] = $this->index();
 	$this->load->view('v_project',$data);
