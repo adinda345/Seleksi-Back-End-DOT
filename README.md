@@ -2,8 +2,7 @@
 1.download aplikasi Seleksi-Back-End-DOT
 2.ekstrak ekstensi rar
 3.copy project ke xampp/htdocs/
-
-cara buka aplikasi
+# cara buka aplikasi
 4. aktifkan apache di xampp
 5. masuk web browser
 6. ketik localhost/Seleksi-Back-End-DOT-master/
