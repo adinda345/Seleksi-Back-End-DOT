@@ -41,7 +41,7 @@
 					<option>- Kota -</option>
 				</select>
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" disabled>Submit</button>
 			<?php echo form_close() ?>
 		</div>
 	</div>
