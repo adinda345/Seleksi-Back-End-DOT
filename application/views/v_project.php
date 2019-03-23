@@ -14,7 +14,7 @@
 			<?php echo form_open('shipping/cek')?>
 			<div class="form-group">
 				<label for="select1">Asal</label>
-				<select name="origin_province" class="form-control" id="select1">
+				<select id="origin_province" name="origin_province" class="form-control" >
 					<option>- Provinsi -</option>
 					<?php foreach ($province->rajaongkir->results as $prov) { ?>
 						<option value="<?php echo $prov->province_id; ?>"><?php echo $prov->province; ?></option>
@@ -23,21 +23,21 @@
 				<br>
 			<div class="form-group">
 				<label for="select1">Kota</label>
-				<select name="origin_city" class="form-control" id="select1">
+				<select id="origin_city" name="origin_city" class="form-control" >
 					<option>- Kota -</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<label for="select1">Tujuan</label>
-				<select name="destination_province" class="form-control" id="select1">
+				<select id="destination_province" name="destination_province" class="form-control" >
 					<option>- Provinsi -</option>
 					<?php foreach ($province->rajaongkir->results as $prov) { ?>
 						<option value="<?php echo $prov->province_id; ?>"><?php echo $prov->province; ?></option>
 					<?php } ?>
 				</select>
 				<br>
-				<select name="destination_city" class="form-control" id="select1">
+				<select id="destination_city" name="destination_city" class="form-control">
 					<option>- Kota -</option>
 				</select>
 			</div>
@@ -45,7 +45,30 @@
 			<?php echo form_close() ?>
 		</div>
 	</div>
-	
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#origin_province').change(function(){
+			var province_id = $('#origin_province').val();
+		$.get('<?php echo site_url('shipping/get_city_by_province/')?>'+province_id, function(resp){
+			// console.log(resp);
+			$('#origin_city').html(resp);
+		});
+
+		});
+	});
+	$(document).ready(function(){
+		$('#destination_province').change(function(){
+			var province_id = $('#destination_province').val();
+		$.get('<?php echo site_url('shipping/get_city_by_province/')?>'+province_id, function(resp){
+			// console.log(resp);
+			$('#destination_city').html(resp);
+		});
+
+		});
+	});
+
+</script>
 </body>
 </html>
